@@ -1,5 +1,10 @@
+// @ts-check
 "use strict"
 
+/**
+ * @param {number} a
+ * @param {number} b
+ */
 function ascending (a, b) {
 	return a < b
 		? -1
@@ -8,32 +13,22 @@ function ascending (a, b) {
 			: 0
 }
 
-function getMedianIndex (list) {
-	// median = (n + 1) / 2
-	return Math.round ((list.length + 1) / 2 - 1) // - 1 because array index start at 0
-}
-
+/** @param {number[]} list */
 function median (list) {
-	const medianIndex = getMedianIndex (list)
-	const isEven = list.length % 2 === 0
+	// integer or integer + 0.5 (if even)
+	const index = (list.length + 1) / 2 - 1 // - 1 because an array is zero indexed
+	const m = (list [Math.floor (index)] + list [Math.ceil (index)]) / 2
 
-	console.debug (list, medianIndex, isEven)
-
-	return isEven
-		? (list[medianIndex - 1] + list[medianIndex]) / 2
-		: list[Math.floor (medianIndex)]
+	return m
 }
 
+/** @param {number[]} list */
 function quartiles (list) {
 	list.sort (ascending)
 
-	const medianIndex = getMedianIndex (list)
-
 	const M = median (list)
-
-	const Q1 = median (list.slice (0, medianIndex))
-
-	const Q3 = median (list.slice (medianIndex))
+	const Q1 = median (list.filter (x => x < M))
+	const Q3 = median (list.filter (x => x > M))
 
 	return { M, Q1, Q3 }
 }
