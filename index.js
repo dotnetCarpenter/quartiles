@@ -33,6 +33,7 @@ function quartiles (list) {
 	return { M, Q1, Q3 }
 }
 
+module.exports.median = median
 module.exports.quartiles = quartiles
 
 // TEST
