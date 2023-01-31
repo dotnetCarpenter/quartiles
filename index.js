@@ -68,10 +68,3 @@ function quartiles (list) {
 
 module.exports.median = median
 module.exports.quartiles = quartiles
-
-// TEST
-// console.log (
-// 	quartiles ([1, 1, 3, 6, 7, 11, 12, 15]), // M: (6+7)/2 = 6.5, Q1: (1+3)/2 = 2, Q3: (11+12)/2 = 11.5
-
-// 	quartiles ([4, 8, 11, 14, 15]) // M: 11, Q1: (4+8)/2 = 6, Q3: (14+15)/2 = 14.5
-// )
