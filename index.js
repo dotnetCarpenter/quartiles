@@ -23,7 +23,7 @@ function median (list) {
 }
 
 /**
- * outliers
+ * outliers: extreme observations.
  * Data points that are more than 1.5 times away from the interquartile range.
  * @param {number} interquartileRange
  * @param {number[]} list
@@ -32,6 +32,7 @@ function outliers (Q1, Q3, interquartileRange, list) {
 	const quartileDistance = interquartileRange * 1.5
 	const min = Q1 - quartileDistance
 	const max = Q3 + quartileDistance
+	// console.debug ("quartileDistance", min, max)
 
 	return list.filter (n => n < min || n > max)
 }
