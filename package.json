@@ -1,8 +1,9 @@
 {
   "name": "quartiles",
   "version": "1.0.0",
-  "description": "",
+  "description": "Get Median, first and third quatiles from a list.",
   "main": "index.js",
+  "bin": "./cli.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
