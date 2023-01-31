@@ -4,6 +4,7 @@
   "description": "Get Median, first and third quatiles from a list.",
   "main": "index.js",
   "bin": "./cli.js",
+  "files": ["index.js", "cli.js"],
   "scripts": {
     "test": "vitest",
     "coverage": "vitest run --coverage"

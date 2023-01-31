@@ -1,6 +1,8 @@
 quartiles
 =========
 
+![Image of boxplot with outliers, min, Q1, Median, Q3, Max, interquartile range and range.](boxplot.jpg)
+
 ## Globally
 
 From the Command Line
