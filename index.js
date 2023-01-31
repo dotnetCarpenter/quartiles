@@ -22,15 +22,47 @@ function median (list) {
 	return m
 }
 
+/**
+ * outliers
+ * Data points that are more than 1.5 times away from the interquartile range.
+ * @param {number} interquartileRange
+ * @param {number[]} list
+ */
+function outliers (Q1, Q3, interquartileRange, list) {
+	const quartileDistance = interquartileRange * 1.5
+	const min = Q1 - quartileDistance
+	const max = Q3 + quartileDistance
+
+	return list.filter (n => n < min || n > max)
+}
+
 /** @param {number[]} list */
 function quartiles (list) {
 	list.sort (ascending)
 
-	const M = median (list)
+	const min = list[0] // Math.min.apply (Math, list)
+	const max = list[list.length - 1] // Math.max.apply (Math, list)
+
+	// variationsbredde AKA range
+	const range = max - min
+
+	const M  = median (list)
 	const Q1 = median (list.filter (x => x < M))
 	const Q3 = median (list.filter (x => x > M))
 
-	return { M, Q1, Q3 }
+	// interquartile range AKA kvartilafstand = Q3 - Q1
+	const interquartileRange = Q3 - Q1
+
+	return {
+		min,
+		Q1,
+		M,
+		Q3,
+		max,
+		range,
+		interquartileRange,
+		outliers: outliers(Q1, Q3, interquartileRange, list)
+	}
 }
 
 module.exports.median = median
