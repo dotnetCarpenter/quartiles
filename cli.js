@@ -3,7 +3,7 @@
 
 const { quartiles } = require ("./index.js")
 
-const validList = /^\{((?:\d+,?)+)\}$/
+const validList = /^\{((?:\s*-?\d+,?)+)\}$/
 
 let list = validList.exec (process.argv.slice (2).join (""))
 
