@@ -74,5 +74,4 @@ function quartiles (list) {
 	}
 }
 
-module.exports.median = median
-module.exports.quartiles = quartiles
+export { median, quartiles }
