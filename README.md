@@ -34,7 +34,7 @@ _or_
 In code
 
 ```js
-const { quartiles, median } = require("quartiles")
+import { quartiles, median } from "quartiles"
 
 const list = [15,7,9,6,1,8,2,9,12,1,-12]
 

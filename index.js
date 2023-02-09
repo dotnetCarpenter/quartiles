@@ -13,19 +13,26 @@ function ascending (a, b) {
 			: 0
 }
 
-function getMiddleObservationIndex (list) {
-	return (list.length + 1) / 2 - 1 // - 1 because an array is zero indexed
+function add (a, b) {
+	return a + b
+}
+
+function sum (list) {
+	return list.reduce (add, 0)
+}
+
+function mean (list) {
+	return sum (list) / list.length
 }
 
 /** @param {number[]} list */
-function median (list) {
-	// integer or integer + 0.5 (if even)
-	const index = getMiddleObservationIndex (list)
-	const m = (list [Math.floor (index)] + list [Math.ceil (index)]) / 2
+const median = list => {
+	const index = list.length / 2
 
-	// console.debug ("length", list.length, "index", index, "M", m)
+	// console.debug ("list", list, "length", list.length, "index", index)
 
-	return m
+	if (list.length % 2 === 0) return mean (list.slice (index - 1, index + 1))
+	else return list[index|0]
 }
 
 /**
@@ -53,11 +60,10 @@ function quartiles (list) {
 	// variationsbredde AKA range
 	const range = max - min
 
-	const M  = median (list)
-
-	const index = getMiddleObservationIndex (list)
-	const Q1 = median (list.filter ((_, i) => i < index))
-	const Q3 = median (list.filter ((_, i) => i > index))
+	const index = list.length / 2
+	const M = median (list)
+	const Q1 = median (list.slice (0, index))
+	const Q3 = median (list.slice (Math.ceil (index)))
 
 	// interquartile range AKA kvartilafstand = Q3 - Q1
 	const interquartileRange = Q3 - Q1

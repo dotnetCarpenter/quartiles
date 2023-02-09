@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 "use strict"
 
-const { quartiles } = require ("./index.js")
+import { quartiles } from "./index.js"
 
 const validList = /^\{((?:\s*-?\d+,?)+)\}/
 
