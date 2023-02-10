@@ -80,4 +80,4 @@ function quartiles (list) {
 	}
 }
 
-export { median, quartiles }
+export { median, quartiles, mean }

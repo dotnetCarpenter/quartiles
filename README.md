@@ -1,6 +1,8 @@
 quartiles
 =========
 
+The median, quartiles and outliers of ungrouped data (discrete data).
+
 ![Image of boxplot with outliers, min, Q1, Median, Q3, Max, interquartile range and range.](boxplot.jpg)
 
 ## Globally
@@ -34,18 +36,20 @@ _or_
 In code
 
 ```js
-import { quartiles, median } from "quartiles"
+import { quartiles, median, mean } from "quartiles"
 
 const list = [15,7,9,6,1,8,2,9,12,1,-12]
 
-const { M, Q1, Q3 } = quartiles(list)
+const { min, M, Q1, Q3, max } = quartiles(list)
 const quartileSet = [Q1, M, Q3] // (7 ; 1 ; 9)
+const
 
 const { min, max } = quartiles(list)
 const expandedQuartileSet = [min, Q1, M, Q3, max]
 
-const m = median (list)
-m  // 7
+median(list) // <- 7
+
+mean(list)   // <- 5.2727272727272725
 ```
 
 ### Installation
